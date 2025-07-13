@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, User, Plus } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const keralaCities = [
   "All Cities", "Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", 
@@ -15,13 +16,15 @@ const categories = [
 ];
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-background border-b border-border sticky top-0 z-50 backdrop-blur-md bg-background/95">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <h1 className="text-2xl font-bold text-primary">Kerala Klassifieds</h1>
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-3">
             <Select>
@@ -53,15 +56,19 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="hidden sm:flex">
-              <User className="w-4 h-4 mr-2" />
-              Login
-            </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              <Plus className="w-4 h-4 mr-2" />
-              <span className="hidden sm:inline">Submit My Ad</span>
-              <span className="sm:hidden">Post Ad</span>
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" size="sm" className="hidden sm:flex">
+                <User className="w-4 h-4 mr-2" />
+                Login
+              </Button>
+            </Link>
+            <Link to="/submit-ad">
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
+                <Plus className="w-4 h-4 mr-2" />
+                <span className="hidden sm:inline">Submit My Ad</span>
+                <span className="sm:hidden">Post Ad</span>
+              </Button>
+            </Link>
           </div>
         </div>
 

@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Phone, Star } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 interface AdCardProps {
   id: string;
   title: string;
@@ -13,9 +15,10 @@ interface AdCardProps {
   postedDate: string;
 }
 
-const AdCard = ({ title, description, category, city, phone, isFeatured, postedDate }: AdCardProps) => {
+const AdCard = ({ id, title, description, category, city, phone, isFeatured, postedDate }: AdCardProps) => {
   return (
-    <Card className={`hover:shadow-lg transition-all duration-300 ${isFeatured ? 'border-kerala-gold bg-gradient-to-br from-background to-kerala-gold/5 shadow-[var(--shadow-featured)]' : 'shadow-[var(--shadow-card)]'}`}>
+    <Link to={`/ad/${id}`}>
+      <Card className={`hover:shadow-lg transition-all duration-300 cursor-pointer ${isFeatured ? 'border-kerala-gold bg-gradient-to-br from-background to-kerala-gold/5 shadow-[var(--shadow-featured)]' : 'shadow-[var(--shadow-card)]'}`}>
       <CardContent className="p-4">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex-1">
@@ -55,6 +58,7 @@ const AdCard = ({ title, description, category, city, phone, isFeatured, postedD
         </div>
       </CardContent>
     </Card>
+    </Link>
   );
 };
 

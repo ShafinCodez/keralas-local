@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				kerala: {
+					green: 'hsl(var(--kerala-green))',
+					'green-light': 'hsl(var(--kerala-green-light))',
+					gold: 'hsl(var(--kerala-gold))',
+					blue: 'hsl(var(--kerala-blue))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
